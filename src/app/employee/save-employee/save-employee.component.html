@@ -1,0 +1,63 @@
+
+
+<div class="register-container">
+  <h2 style="margin-left: 21%">Employee Registration Form</h2>
+  <div class="row">
+    <div class="col-md-7 offset-md-3">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <span style="font-size: 11px" [hidden]="!registerForm.invalid" class="text-info">Fields marked with <b style="color:red; font-size: 14px">*</b> are mandatory</span> 
+
+        <!-- Name -->
+        <div class="form-group">
+          <label>Name <b style="color:red">*</b></label>
+          <input type="text" autofocus
+           formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+          <span [hidden]="((registerForm.controls.name.value.length >= 3 && registerForm.controls.name.value.length <= 25) || registerForm.controls.name.value.length==0)" class="text-danger">First Name should be of 3-25 characters</span>
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+             <div class="errmsg" *ngIf="f.name.errors.required">First Name is required</div>
+          </div>
+        </div>
+
+      
+        <!-- Password -->
+        <div class="form-group">
+          <label>Password <b style="color:red">*</b></label>
+          <input type="password" formControlName="password" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">password is required</div>
+          </div>
+        </div>
+
+
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label>Phone Number<b style="color:red">*</b></label>
+            <input type="text" formControlName="phoneNumber" class="form-control" required [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+      
+            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.phoneNumber.errors.required">PhoneNumber is required</div>
+          </div>
+          </div>
+
+          <!-- Supervisor -->
+        <div class="form-group">
+            <label>Supervisor<b style="color:red">*</b></label>
+            <input type="text" formControlName="supervisors" class="form-control"  />
+      </div>
+
+
+        <!-- Register Button -->
+        <div class="form-group">
+          <button [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row text-success" *ngIf="emp">Employee added successfully with Emp Id: {{emp.empId}}</div>
+
+
+</div>
+

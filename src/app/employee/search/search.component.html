@@ -1,0 +1,74 @@
+
+<div class="register-container">
+    <h2 style="margin-left: 21%">Edit Employee with ID {{empId}}</h2>
+    <div class="row">
+      <div class="col-md-7 offset-md-3">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  
+          <!-- ID -->
+          <div class="form-group">
+            <label>ID</label>
+            <input type="text" formControlName="id" class="form-control"  />
+          </div>
+
+          <!-- Name -->
+          <div class="form-group">
+            <label>Name </label>
+            <input type="text" autofocus
+             formControlName="name" class="form-control" />
+          </div>
+
+          <!-- phoneNumber -->
+          <div class="form-group">
+            <label>Password</label>
+            <input type="text" formControlName="password" class="form-control"  />
+          </div>
+
+          <!-- phoneNumber -->
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" formControlName="phoneNumber" class="form-control"  />
+          </div>
+
+          <!-- phoneNumber -->
+          <div class="form-group">
+            <label>Supervisor</label>
+            <input type="text" formControlName="supervisors" class="form-control"  />
+          </div>
+  
+      <!-- Register Button -->
+          <div class="form-group">
+            <button [disabled]="searchForm.invalid" class="btn btn-primary">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div *ngIf="employee && employee.length>0" class="container">
+     
+      <table class="table table-hover table-bordered">
+             <thead>
+             <tr class="info">
+               <th class="text-center" *ngFor="let col of tableColumns">{{col}}</th>
+         
+             </tr>
+             </thead>
+             <tbody>
+         
+             <tr *ngFor="let data of employee">
+               <td class="text-center"> {{data.id}}</td>
+               <td class="text-center"> {{data.name}}</td>
+               <td class="text-center"> {{data.password}}</td>
+               <td class="text-center"> {{data.phoneNumber}}</td>
+               <td class="text-center"> {{data.supervisors}}</td>
+              
+             </tr>
+             </tbody>
+           </table>
+           
+         </div>
+
+  

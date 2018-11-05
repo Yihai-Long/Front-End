@@ -91,7 +91,8 @@ export class EmployeeComponent implements OnInit {
        if(deleted){
         this.success();
         // Refresh DataTable to remove row.
-        this.deleteRowDataTable(empId, this.idColumn, this.paginator, this.dataSource);
+        //this.deleteRowDataTable(empId, this.idColumn, this.paginator, this.dataSource);
+         window.location.reload();
        }else { alert("Failed to delete.") }
    }
       );

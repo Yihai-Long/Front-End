@@ -33,8 +33,8 @@
 </div>
 
 <div  *ngIf="employees && employees.length==0" style="text-align: center">
-    <h3>Sorry! there are no such employee</h3>
-      <h4>Proceed to <a class="nav-link" (click)="route()">'Register'</a> tab to add new employees. Thank you! :)</h4>
+    <h3>There are no such employee</h3>
+      <h4>Proceed to <a class="nav-link" (click)="route()">'Register'</a> tab to add new employees. Thank you!</h4>
     </div>
     <div *ngIf="employees && employees.length>0" class="container">
      
